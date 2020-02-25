@@ -1,6 +1,16 @@
+import java.util.Collection;
 import java.util.Date;
+import java.util.LinkedList;
 
-public class HR {
+public class HR extends HumanEntity {
+
+    static Collection<HR> storage = new LinkedList<>();
+
+    public HR(String name, String surname, String[] phones, String[] emails, String password) {
+        super(name, surname, phones, emails, password);
+        HR.storage.add(this);
+    }
+
     public GPSLocation checkUserLocation(int idNumber, Date date){
         return null;
     }
