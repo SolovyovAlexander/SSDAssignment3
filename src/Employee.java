@@ -23,9 +23,6 @@ public class Employee extends HumanEntity {
         Employee.storage.add(this);
     }
 
-    public String login(String phone, String password){
-        return null;
-    }
     public void sendLocation(GPSLocation location){
 
     }

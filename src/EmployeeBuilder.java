@@ -1,15 +1,16 @@
+//Builder Pattern
 public class EmployeeBuilder {
 
     private String name;
     private String surname;
-    private String[] phones;
-    private String[] emails;
+    private String[] phones = {};
+    private String[] emails = {};
     private String password;
-    private Integer salary;
-    private boolean isWorking;
-    private DataTypes.Status status;
-    private DataTypes.Education[] educationData;
-    private DataTypes.WorkPosition position;
+    private Integer salary = 0;
+    private boolean isWorking = true;
+    private DataTypes.Status status = DataTypes.Status.WORKING;
+    private DataTypes.Education[] educationData = null;
+    private DataTypes.WorkPosition position = null;
 
     public Employee build() {
         return new Employee(name, surname, phones, emails, password, salary, isWorking, position, educationData, status);
