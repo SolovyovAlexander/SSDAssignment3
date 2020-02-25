@@ -1,3 +1,5 @@
+import java.util.Date;
+
 public class DataTypes {
 
     public enum Status {
@@ -27,5 +29,12 @@ public class DataTypes {
         LLM,
         PhD,
         DPhill
+    }
+
+    class Education {
+        EducationLevel level;
+        String institution;
+        Date from;
+        Date to;
     }
 }
