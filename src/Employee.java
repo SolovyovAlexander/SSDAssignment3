@@ -23,6 +23,10 @@ public class Employee extends HumanEntity {
         Employee.storage.add(this);
     }
 
+    public Employee clone(){
+        return new Employee(this.name, this.surname, this.phones, this.emails, this.password, this.salary, this.isWorking, this.workPosition, this.educationData, this.status);
+    }
+
     public void sendLocation(GPSLocation location){
 
     }

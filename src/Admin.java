@@ -9,6 +9,10 @@ public class Admin extends HR {
         Admin.storage.add(this);
     }
 
+    public Admin clone(){
+        return new Admin(this.name, this.surname, this.phones, this.emails, this.password);
+    }
+
     public Employee createEmployee(Map<String, Object> data){
         String emp_name = null;
         String emp_surname = null;

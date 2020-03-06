@@ -11,6 +11,10 @@ public class HR extends HumanEntity {
         HR.storage.add(this);
     }
 
+    public HR clone(){
+        return new HR(this.name, this.surname, this.phones, this.emails, this.password);
+    }
+
     public GPSLocation checkUserLocation(int idNumber, Date date){
         return null;
     }

@@ -2,7 +2,7 @@ import java.nio.charset.Charset;
 import java.util.Arrays;
 import java.util.Random;
 
-public abstract class HumanEntity {
+public abstract class HumanEntity implements Prototype {
     int identityNumber;
     String name;
     String surname;
@@ -18,6 +18,7 @@ public abstract class HumanEntity {
         this.emails = emails.clone();
         this.password = password;
     }
+
 
     // login Pseudo implementation
     public String login(String phone_or_email, String password){
