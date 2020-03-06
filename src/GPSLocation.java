@@ -6,6 +6,11 @@ public class GPSLocation {
     private Date data;
     private Employee employee;
 
+    public void updateLocation(double latitude, double longitude) {
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
+
     public double getLatitude() {
         return latitude;
     }

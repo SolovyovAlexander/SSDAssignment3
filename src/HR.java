@@ -4,7 +4,7 @@ import java.util.LinkedList;
 
 public class HR extends HumanEntity {
 
-    private static Collection<HR> storage = new LinkedList<>();
+    static Collection<HR> storage = new LinkedList<>();
 
     HR(String name, String surname, String[] phones, String[] emails, String password) {
         super(name, surname, phones, emails, password);

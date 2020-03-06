@@ -4,7 +4,7 @@ import java.util.Map;
 
 public class Admin extends HR {
 
-    private static Collection<Admin> storage = new LinkedList<>();
+    static Collection<Admin> storage = new LinkedList<>();
 
     Admin(String name, String surname, String[] phones, String[] emails, String password) {
         super(name, surname, phones, emails, password);

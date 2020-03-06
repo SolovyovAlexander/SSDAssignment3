@@ -1,9 +1,10 @@
+import DataTypes.StatusType;
+import DataTypes.WorkPositionType;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.LinkedList;
-import DataTypes.StatusType;
-import DataTypes.WorkPositionType;
 
 public class Employee extends HumanEntity {
 
@@ -68,6 +69,14 @@ public class Employee extends HumanEntity {
         return new Employee(
                 this.getName(), this.getSurname(), this.getPhones(), this.getEmails(), this.password,
                 this.getSalary(), this.isWorking(), this.getWorkPosition(),
+                this.getEducationData(), this.getStatus()
+        );
+    }
+
+    public Employee clone(String name, String surname, int salary, String[] emails) {
+        return new Employee(
+                name, surname, this.getPhones(), emails, this.password,
+                salary, this.isWorking(), this.getWorkPosition(),
                 this.getEducationData(), this.getStatus()
         );
     }

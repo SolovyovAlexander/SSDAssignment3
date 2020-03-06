@@ -38,6 +38,15 @@ public class Main {
 
         System.out.print("Employee in storage after deletion: ");
         System.out.println(Employee.storage.contains(employee));
+
+        Employee newEmployee = employee.clone();
+        newEmployee.setName("Egor");
+        newEmployee.setSurname("Baklanov");
+        newEmployee.setSalary(99999);
+        String[] newEmails = {"egor@gmail.com"};
+        newEmployee.setEmails(newEmails);
+
+        Employee anotherEmployee = employee.clone("maxim", "sukach", 1337, newEmails);
     }
 
 }
