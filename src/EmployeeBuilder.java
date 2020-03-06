@@ -1,3 +1,6 @@
+import DataTypes.StatusType;
+import DataTypes.WorkPositionType;
+
 //Builder Pattern
 public class EmployeeBuilder {
 
@@ -8,9 +11,9 @@ public class EmployeeBuilder {
     private String password;
     private Integer salary = 0;
     private boolean isWorking = true;
-    private DataTypes.Status status = DataTypes.Status.WORKING;
-    private DataTypes.Education[] educationData = null;
-    private DataTypes.WorkPosition position = null;
+    private StatusType status = StatusType.WORKING;
+    private Education[] educationData = null;
+    private WorkPositionType position = null;
 
     public Employee build() {
         return new Employee(name, surname, phones, emails, password, salary, isWorking, position, educationData, status);
@@ -39,22 +42,22 @@ public class EmployeeBuilder {
     public void setSalary(Integer salary) {
         this.salary = salary;
     }
+
     public void setWorking(boolean working) {
         isWorking = working;
     }
 
-    public void setStatus(DataTypes.Status status) {
+    public void setStatus(StatusType status) {
         this.status = status;
     }
 
-    public void setEducationData(DataTypes.Education[] educationData) {
+    public void setEducationData(Education[] educationData) {
         this.educationData = educationData;
     }
 
-    public void setPosition(DataTypes.WorkPosition position) {
+    public void setPosition(WorkPositionType position) {
         this.position = position;
     }
-
 
 
 }

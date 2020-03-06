@@ -2,18 +2,19 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.LinkedList;
+import DataTypes.StatusType;
+import DataTypes.WorkPositionType;
 
 public class Employee extends HumanEntity {
 
     static Collection<Employee> storage = new LinkedList<>();
+    private StatusType status;
+    private int salary;
+    private boolean isWorking;
+    private WorkPositionType workPosition;
+    private Education[] educationData;
 
-    int salary;
-    boolean isWorking;
-    DataTypes.WorkPosition workPosition;
-    DataTypes.Education[] educationData;
-    DataTypes.Status status;
-
-    public Employee(String name, String surname, String[] phones, String[] emails, String password, int salary, boolean isWorking, DataTypes.WorkPosition workPosition, DataTypes.Education[] educationData, DataTypes.Status status) {
+    Employee(String name, String surname, String[] phones, String[] emails, String password, int salary, boolean isWorking, WorkPositionType workPosition, Education[] educationData, StatusType status) {
         super(name, surname, phones, emails, password);
         this.salary = salary;
         this.isWorking = isWorking;
@@ -23,18 +24,65 @@ public class Employee extends HumanEntity {
         Employee.storage.add(this);
     }
 
-    public Employee clone(){
-        return new Employee(this.name, this.surname, this.phones, this.emails, this.password, this.salary, this.isWorking, this.workPosition, this.educationData, this.status);
+    public StatusType getStatus() {
+        return status;
     }
 
-    public void sendLocation(GPSLocation location){
+    public void setStatus(StatusType status) {
+        this.status = status;
+    }
+
+    public int getSalary() {
+        return salary;
+    }
+
+    public void setSalary(int salary) {
+        this.salary = salary;
+    }
+
+    public boolean isWorking() {
+        return isWorking;
+    }
+
+    public void setWorking(boolean working) {
+        isWorking = working;
+    }
+
+    public WorkPositionType getWorkPosition() {
+        return workPosition;
+    }
+
+    public void setWorkPosition(WorkPositionType workPosition) {
+        this.workPosition = workPosition;
+    }
+
+    public Education[] getEducationData() {
+        return educationData;
+    }
+
+    public void setEducationData(Education[] educationData) {
+        this.educationData = educationData;
+    }
+
+    public Employee clone() {
+        return new Employee(
+                this.getName(), this.getSurname(), this.getPhones(), this.getEmails(), this.password,
+                this.getSalary(), this.isWorking(), this.getWorkPosition(),
+                this.getEducationData(), this.getStatus()
+        );
+    }
+
+    public void sendLocation(GPSLocation location) {
 
     }
-    public void takePhoto(){
+
+    public void takePhoto() {
 
     }
-    public ArrayList<GPSLocation> getLocations(Date date){
-        return  null;
+
+
+    public ArrayList<GPSLocation> getLocations(Date date) {
+        return null;
     }
 
 }

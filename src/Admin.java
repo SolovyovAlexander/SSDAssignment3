@@ -1,25 +1,27 @@
-import java.util.*;
+import java.util.Collection;
+import java.util.LinkedList;
+import java.util.Map;
 
 public class Admin extends HR {
 
-    public static Collection<Admin> storage = new LinkedList<>();
+    private static Collection<Admin> storage = new LinkedList<>();
 
-    public Admin(String name, String surname, String[] phones, String[] emails, String password) {
+    Admin(String name, String surname, String[] phones, String[] emails, String password) {
         super(name, surname, phones, emails, password);
         Admin.storage.add(this);
     }
 
-    public Admin clone(){
-        return new Admin(this.name, this.surname, this.phones, this.emails, this.password);
+    public Admin clone() {
+        return new Admin(this.getName(), this.getSurname(), this.getPhones(), this.getEmails(), this.password);
     }
 
-    public Employee createEmployee(Map<String, Object> data){
+    Employee createEmployee(Map<String, Object> data) {
         String emp_name = null;
         String emp_surname = null;
         String emp_password = null;
         try {
             emp_name = (String) data.get("name");
-            if (name == null) {
+            if (getName() == null) {
                 System.err.println("field is not presented");
                 System.exit(-1);
             }
@@ -31,7 +33,7 @@ public class Admin extends HR {
 
         try {
             emp_surname = (String) data.get("surname");
-            if (surname == null) {
+            if (getSurname() == null) {
                 System.err.println("field [surname] is not presented");
                 System.exit(-1);
             }
@@ -42,7 +44,7 @@ public class Admin extends HR {
 
         try {
             emp_password = (String) data.get("password");
-            if (surname == null) {
+            if (password == null) {
                 System.err.println("field [password] is not presented");
                 System.exit(-1);
             }
@@ -60,7 +62,8 @@ public class Admin extends HR {
 
         return employee_builder.build();
     }
-    public void deleteEmployee(Employee employee){
+
+    void deleteEmployee(Employee employee) {
         Employee.storage.remove(employee);
     }
 }

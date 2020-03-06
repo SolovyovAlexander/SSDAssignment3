@@ -1,4 +1,5 @@
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Main {
 
@@ -22,11 +23,16 @@ public class Main {
         System.out.println(Employee.storage.contains(employee));
 
         System.out.println("--- Employee information ---");
-        System.out.println(employee.name);
-        System.out.println(employee.surname);
+        System.out.println(employee.getName());
+        System.out.println(employee.getSurname());
         System.out.println(employee.password);
-        System.out.println(employee.status);
+        System.out.println(employee.getStatus());
         System.out.println("------\n");
+
+        Employee test = employee.clone();
+        test.setName("pines");
+        System.out.println(test.getName());
+        System.out.println(employee.getName());
 
         admin.deleteEmployee(employee);
 

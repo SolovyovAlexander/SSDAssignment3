@@ -1,13 +1,15 @@
+import Interfaces.Prototype;
+
 import java.nio.charset.Charset;
 import java.util.Arrays;
 import java.util.Random;
 
 public abstract class HumanEntity implements Prototype {
-    int identityNumber;
-    String name;
-    String surname;
-    String[] phones;
-    String[] emails;
+    private int identityNumber;
+    private String name;
+    private String surname;
+    private String[] phones;
+    private String[] emails;
     String password;
     private String auth_token = null;
 
@@ -19,9 +21,52 @@ public abstract class HumanEntity implements Prototype {
         this.password = password;
     }
 
+    public int getIdentityNumber() {
+        return identityNumber;
+    }
+
+    public void setIdentityNumber(int identityNumber) {
+        this.identityNumber = identityNumber;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public String[] getPhones() {
+        return phones;
+    }
+
+    public void setPhones(String[] phones) {
+        this.phones = phones;
+    }
+
+    public String[] getEmails() {
+        return emails;
+    }
+
+    public void setEmails(String[] emails) {
+        this.emails = emails;
+    }
+
+    public HumanEntity clone() {
+        return this;
+    }
 
     // login Pseudo implementation
-    public String login(String phone_or_email, String password){
+    public String login(String phone_or_email, String password) {
         System.out.println(Arrays.asList(this.phones));
         System.out.println(Arrays.asList(this.phones).contains(phone_or_email));
         if (Arrays.asList(this.phones).contains(phone_or_email) && this.password.equals(password)) {
@@ -33,7 +78,8 @@ public abstract class HumanEntity implements Prototype {
             return null;
         }
     }
-    public void logout(){
+
+    public void logout() {
         this.auth_token = null;
     }
 }
