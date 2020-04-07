@@ -1,5 +1,5 @@
 package Interfaces;
 
-public interface Prototype {
-    Prototype clone() throws CloneNotSupportedException;
+public interface Prototype extends Cloneable {
+    Prototype clone() ;
 }

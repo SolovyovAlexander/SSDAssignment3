@@ -63,7 +63,7 @@ public class Admin extends HR {
         return employee_builder.build();
     }
 
-    void deleteEmployee(Employee employee) {
+    public void deleteEmployee(Employee employee) {
         Employee.storage.remove(employee);
     }
 }
