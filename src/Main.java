@@ -1,3 +1,9 @@
+import DataTypes.NotificationRadius;
+import DataTypes.NotificationSound;
+import Decorators.AreaDecorator;
+import Decorators.SoundDecorator;
+import Interfaces.Notification;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -47,6 +53,11 @@ public class Main {
         newEmployee.setEmails(newEmails);
 
         Employee anotherEmployee = employee.clone("maxim", "sukach", 1337, newEmails);
+
+        // Notifications
+        System.out.println("\nNotifications Decorator Test:\n==============");
+        Notification notif = new AreaDecorator(new SoundDecorator(new BaseNotification(), NotificationSound.ALARM), NotificationRadius.CITY);
+        notif.send();
     }
 
 }
