@@ -1,3 +1,4 @@
+import Classes.WorkingState;
 import DataTypes.NotificationRadius;
 import DataTypes.NotificationSound;
 import Decorators.AreaDecorator;
@@ -58,6 +59,10 @@ public class Main {
         System.out.println("\nNotifications Decorator Test:\n==============");
         Notification notif = new AreaDecorator(new SoundDecorator(new BaseNotification(), NotificationSound.ALARM), NotificationRadius.CITY);
         notif.send();
+
+        System.out.println(anotherEmployee.getEmployeeState());
+        anotherEmployee.setEmployeeState(new WorkingState());
+        System.out.println(anotherEmployee.getEmployeeState());
     }
 
 }

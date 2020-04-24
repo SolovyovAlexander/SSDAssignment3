@@ -1,5 +1,8 @@
+import Classes.Context;
+import Classes.RestingAtHomeState;
 import DataTypes.StatusType;
 import DataTypes.WorkPositionType;
+import Interfaces.State;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -14,6 +17,7 @@ public class Employee extends HumanEntity {
     private boolean isWorking;
     private WorkPositionType workPosition;
     private Education[] educationData;
+    private Context context;
 
     Employee(String name, String surname, String[] phones, String[] emails, String password, int salary, boolean isWorking, WorkPositionType workPosition, Education[] educationData, StatusType status) {
         super(name, surname, phones, emails, password);
@@ -22,7 +26,16 @@ public class Employee extends HumanEntity {
         this.workPosition = workPosition;
         this.educationData = educationData;
         this.status = status;
+        this.context = new Context(new RestingAtHomeState());
         Employee.storage.add(this);
+    }
+
+    public String getEmployeeState(){
+        return this.context.getCurrentActivity();
+    }
+
+    public void setEmployeeState(State state){
+        this.context.setState(state);
     }
 
     public StatusType getStatus() {
